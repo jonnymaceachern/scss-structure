@@ -72,3 +72,8 @@ $asset-base-path: '../assets' !default;
 		@return $map;
 }
 
+// a map-set function (not included with Sass)
+@function map-set($map, $key, $value) {
+	$new: ($key: $value);
+	@return map-merge($map, $new);
+}
