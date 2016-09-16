@@ -11,22 +11,26 @@
 */
 
 // Loop through the breakpoints map and create an alignmnet for each
-@each $value, $name in $mq-breakpoints {
+@each $name, $value in $mq-breakpoints {
 
 	@include mq($name){
 
-		.text-#{$name} {
-			&-left {
-				text-align: left;
-			}
-			&-center {
-				text-align: center;
-			}
-			&-right {
-				text-align: right;
-			}
+		.text-left-#{$name} {
+			text-align: left;
 		}
-		
+		.text-center-#{$name} {
+			text-align: center;
+		}
+		.text-right-#{$name} {
+			text-align: right;
+		}		
+
 	}
 
+}
+
+.vertically-center-columns {
+	@include mq($from: sm){
+		@include table-center();
+	}
 }
