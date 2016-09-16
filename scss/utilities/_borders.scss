@@ -1,7 +1,7 @@
 /* 
 
  ---------------------------------------------------------------------------
- Shapes
+ Strokes
  ---------------------------------------------------------------------------
 
  
@@ -11,7 +11,15 @@
 */
 
 @each $color, $i in $colors {
-	.stroke--#{$color} {
-		border-color: 1px solid $i;
+	.border-#{$color} {
+		border: 1px solid $i;
+	}
+
+	.border-dashed-#{$color} {
+		border: 1px dashed $i;
+	}
+
+	.border-dotted-#{$color} {
+		border: 1px dotted $i;
 	}
 }
