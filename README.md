@@ -1,1 +1,1 @@
-# scss-structure
+# scss-template
