@@ -93,7 +93,7 @@
 // =============================================================================
 // Use background
 // =============================================================================
-@mixin use-background($bg-class: bottom-dark, $opacity: 1, $pseudo-element: before) {
+@mixin use-background($bg-class: gradient--bottom-dark, $opacity: 1, $pseudo-element: before) {
 
 	@if $pseudo-element == before or $pseudo-element == after {
 		&:#{$pseudo-element} {
