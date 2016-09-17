@@ -1,0 +1,22 @@
+.feature {
+
+	display: block;
+	margin-bottom: 40px;
+
+	&__icon {
+		text-align: center;
+		transform: translateY(-50%);
+		line-height: 1;
+		position: absolute;
+		right: 0;
+		left: 0;
+		> span {
+			padding: 0 10px;
+		}
+	}
+
+	&__content {
+		padding: 40px;
+	}
+
+}

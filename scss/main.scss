@@ -11,10 +11,10 @@
   
 */
 
+@import "abstracts/functions";
 @import "abstracts/colors";
 @import "abstracts/breakpoints";
 @import "abstracts/bootstrap";
-@import "abstracts/functions";
 @import "abstracts/mixins";
 
 
@@ -88,15 +88,17 @@
 
 */
 
-@import 'utilities/fills';
+@import 'utilities/opacity';
 @import 'utilities/colors';
 @import 'utilities/shapes';
-@import 'utilities/strokes';
+@import 'utilities/borders';
 @import 'utilities/underline';
 @import 'utilities/dimensions';
 @import 'utilities/backgrounds';
 @import 'utilities/alignment';
 @import 'utilities/spacing';
+@import 'utilities/transitions';
+@import 'utilities/filters';
 
 
 /* 
@@ -123,6 +125,7 @@
 @import "components/tooltips";
 @import "components/banners";
 @import "components/blockquotes";
+@import "components/features";
 
 
 /* 
