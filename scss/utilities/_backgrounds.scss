@@ -5,8 +5,12 @@
 }
 
 .gradient--diag-colored {
-	@include filter-gradient(#b65eff, #ef017c, horizontal); // IE6-9 fallback on horizontal gradient
-	@include background(linear-gradient(left top,  rgba(182,94,255,0.66) 0%,rgba(239,1,124,0.64) 100%));
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#0007ed+0,ff00a5+100 */
+	background: rgb(0,7,237); /* Old browsers */
+	background: -moz-linear-gradient(-45deg,  rgba(0,7,237,1) 0%, rgba(255,0,165,1) 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(-45deg,  rgba(0,7,237,1) 0%,rgba(255,0,165,1) 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(135deg,  rgba(0,7,237,1) 0%,rgba(255,0,165,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0007ed', endColorstr='#ff00a5',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 }
 
 .gradient--diag-blue {
@@ -27,6 +31,12 @@
 	background: -webkit-linear-gradient(right, #FF5F6D, #FFC371);
 	background: -o-linear-gradient(right, #FF5F6D, #FFC371);
 	background: linear-gradient(to left, #FF5F6D, #FFC371); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.gradient-across-orange-yellow {
+	background: #FF8008; /* fallback for old browsers */
+	background: -webkit-linear-gradient(to left, #FF8008 , #FFC837); /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to left, #FF8008 , #FFC837); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 @each $color, $value in $colors {
