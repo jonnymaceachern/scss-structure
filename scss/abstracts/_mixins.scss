@@ -348,3 +348,8 @@
 		vertical-align: middle;
 	} 
 }
+
+@mixin fit() {
+	object-fit: cover;
+	object-position: 50% 50%;
+}
