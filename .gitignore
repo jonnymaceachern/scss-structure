@@ -1,4 +1,5 @@
 node_modules
 .sass-cache
 videos
-.css.map
+*.css.map
+*.css
