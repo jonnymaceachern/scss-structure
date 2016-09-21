@@ -1,9 +1,11 @@
 /* 
-
  ---------------------------------------------------------------------------
  Spacing
  ---------------------------------------------------------------------------
 
+ 
+
+ ---------------------------------------------------------------------------	
 */
 
 $base-padding: 30px;
@@ -12,17 +14,13 @@ $multiplier-desktop: 2;
 $multiplier-wide: 2.66666666666666;
 
 .pad {
-
 	@include make-padding($base-padding, 1);
-
 	@include mq(sm){
 		@include make-padding($base-padding, $multiplier-tablet);
 	}
-
 	@include mq(md){
 		@include make-padding($base-padding, $multiplier-desktop);
 	}
-
 	@include mq(lg){
 		@include make-padding($base-padding, $multiplier-wide);
 	}

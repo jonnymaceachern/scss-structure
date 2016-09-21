@@ -88,14 +88,16 @@
 
 */
 
+@import 'utilities/gradients';
+@import 'utilities/backgrounds';
 @import 'utilities/opacity';
-@import 'utilities/colors';
+@import 'utilities/text-colors';
+@import 'utilities/text-alignment';
 @import 'utilities/shapes';
 @import 'utilities/borders';
+@import 'utilities/overlays';
 @import 'utilities/underline';
 @import 'utilities/dimensions';
-@import 'utilities/backgrounds';
-@import 'utilities/alignment';
 @import 'utilities/spacing';
 @import 'utilities/transitions';
 @import 'utilities/filters';

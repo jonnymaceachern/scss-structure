@@ -10,36 +10,10 @@
 	
 */
 
-// =============================================================================
-// Library path
-// =============================================================================
-// @see base/custom_variables to set base path
-@function library_path($path: "") {
-	@return cache_buster($library_path + $path);
-}
-
-// =============================================================================
-// Image path
-// =============================================================================
-// @see base/custom_variables to set base path
-@function image_path($path: "") {
-	@return cache_buster($image_path + $path);
-}
-
-// =============================================================================
-// Image path
-// =============================================================================
-// @see base/custom_variables to set base path
-@function cache_buster($path: "") {
-	@return $path;
-
-	// TODO: Generate and append cache buster
-}
-
-
-// =============================================================================
+// -----------------------------------------------------------------------------
 // Font size
-// =============================================================================
+// -----------------------------------------------------------------------------
+
 @mixin font-size($sizeValue: 1.6, $line: $sizeValue * 1.5) {
 	font-size: $sizeValue * 1 + px;
 	line-height: $line * 1 + px;
@@ -47,24 +21,10 @@
 	line-height: $line / 10 + rem;
 }
 
-
-// =============================================================================
-// String Replace
-// =============================================================================
-@function str-replace($string, $search, $replace: "") {
-	$index: str-index($string, $search);
-
-	@if $index {
-		@return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
-	}
-
-	@return $string;
-}
-
-
-// =============================================================================
+// -----------------------------------------------------------------------------
 // Font Face
-// =============================================================================
+// -----------------------------------------------------------------------------
+
 @mixin font-face($name, $path, $weight: null, $style: null, $exts: eot woff2 woff ttf svg) {
 	$src: null;
 	$extmods: (eot: "?", svg: "#" + str-replace($name, " ", "_"));
@@ -82,6 +42,10 @@
 	}
 }
 
+// -----------------------------------------------------------------------------
+// Coverer
+// -----------------------------------------------------------------------------
+
 @mixin coverer {
 	position: absolute;
 	top: 0;
@@ -90,11 +54,11 @@
 	height: 100%;
 }
 
-// =============================================================================
-// Use background
-// =============================================================================
-@mixin use-background($bg-class: gradient--bottom-dark, $opacity: 1, $pseudo-element: before) {
+// -----------------------------------------------------------------------------
+// Overlay
+// -----------------------------------------------------------------------------
 
+@mixin overlay($bg-class: gradient-bottom-dark, $opacity: 1, $pseudo-element: before) {
 	@if $pseudo-element == before or $pseudo-element == after {
 		&:#{$pseudo-element} {
 			@extend .#{$bg-class};
@@ -107,15 +71,13 @@
 		@extend .#{$bg-class};
 		opacity: $opacity;
 	}
-
 }
 
 
-// =============================================================================
-// Make background
-// =============================================================================
-@mixin make-background($bg-color, $opacity: 1, $pseudo-element: before) {
-
+// -----------------------------------------------------------------------------
+// Make overlay
+// -----------------------------------------------------------------------------
+@mixin make-overlay($bg-color, $opacity: 1, $pseudo-element: before) {
 	@if $pseudo-element == before or $pseudo-element == after {
 		&:#{$pseudo-element} {
 			background: $bg-color;
@@ -128,13 +90,12 @@
 		@extend .#{$bg-class};
 		opacity: $opacity;
 	}
-
 }
 
-
-// =============================================================================
+// -----------------------------------------------------------------------------
 // Aspect ratio
-// =============================================================================
+// -----------------------------------------------------------------------------
+
 @mixin aspect-ratio($width, $height) {
 	background-size: cover;
 	position: relative;
@@ -162,9 +123,10 @@
 	}
 }
 
-// =============================================================================
-// Alignment
-// =============================================================================
+// -----------------------------------------------------------------------------
+// Absolute alignment
+// -----------------------------------------------------------------------------
+
 @mixin align($x: left, $y: top) {
 	position: absolute;
 	// Use x and y to set alignment
@@ -206,37 +168,46 @@
 	}
 }
 
+// -----------------------------------------------------------------------------
+// Make padding
+// -----------------------------------------------------------------------------
+
 @mixin make-padding($base-padding, $multiplier) {
-	
 	padding-top: ($base-padding * $multiplier);
 	padding-bottom: ($base-padding * $multiplier);
-
+	&-top {
+		padding-top: ($base-padding * $multiplier);
+		padding-bottom: inherit;
+	}
+	&-bottom {
+		padding-top: inherit;
+		padding-bottom: ($base-padding * $multiplier);
+	}
 	&-short {
 		padding-top: ($base-padding * $multiplier) / 2;
 		padding-bottom: ($base-padding * $multiplier ) / 2;
 	}
-
-	&-short-top {
+	&-top-short {
 		padding-top: ($base-padding * $multiplier) / 2;
 	}
-
-	&-short-bottom {
+	&-bottom-short {
 		padding-bottom: ($base-padding * $multiplier ) / 2;
 	}
-	
 	&-tall {
 		padding-top: ($base-padding * $multiplier ) * 1.5;
 		padding-bottom: ($base-padding * $multiplier ) * 1.5;
 	}
-
-	&-tall-top {
+	&-top-tall {
 		padding-top: ($base-padding * $multiplier ) * 1.5;
 	}
-
-	&-tall-bottom {
+	&-bottom-tall {
 		padding-bottom: ($base-padding * $multiplier ) * 1.5;
 	}
 }
+
+// -----------------------------------------------------------------------------
+// Triangle
+// -----------------------------------------------------------------------------
 
 @mixin triangle($size, $color, $direction) {
 	height: 0;
@@ -244,7 +215,6 @@
 	border-color: transparent;
 	border-style: solid;
 	border-width: $size / 2;
-
 	@if $direction == up {
 		border-bottom-color: $color;
 	} @else if $direction == right {
@@ -258,6 +228,9 @@
 	}
 }
 
+// -----------------------------------------------------------------------------
+// Bordered Triangle
+// -----------------------------------------------------------------------------
 
 @mixin bordered-triangle($size, $border-width, $color, $border-color, $direction, $alt: false) { 
 	$back-size: $size + ($border-width * 2);
@@ -310,27 +283,23 @@
 	
 }
 
-/// Mixin to customize scrollbars
-/// Beware, this does not work in all browsers
-/// @author Hugo Giraudel
-/// @param {Length} $size - Horizontal scrollbar's height and vertical scrollbar's width
-/// @param {Color} $foreground-color - Scrollbar's color
-/// @param {Color} $background-color [mix($foreground-color, white, 50%)] - Scrollbar's color
-/// @example scss - Scrollbar styling
-///   @include scrollbars(.5em, slategray);
+// -----------------------------------------------------------------------------
+// Scrollbars
+// -----------------------------------------------------------------------------
+
 @mixin scrollbars($size, $foreground-color, $background-color: mix($foreground-color, white,  50%)) {
 	// For Google Chrome
 	::-webkit-scrollbar {
-			width:  $size;
-			height: $size;
+		width:  $size;
+		height: $size;
 	}
 
 	::-webkit-scrollbar-thumb {
-			background: $foreground-color;
+		background: $foreground-color;
 	}
 
 	::-webkit-scrollbar-track {
-			background: $background-color;
+		background: $background-color;
 	}
 
 	// For Internet Explorer
@@ -348,6 +317,10 @@
 		vertical-align: middle;
 	} 
 }
+
+// -----------------------------------------------------------------------------
+// Object fit
+// -----------------------------------------------------------------------------
 
 @mixin fit() {
 	object-fit: cover;

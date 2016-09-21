@@ -1,15 +1,12 @@
 /* 
-
  ---------------------------------------------------------------------------
  Text alignment
  ---------------------------------------------------------------------------
 
  Loop through the breakpoints map and create an alignmnet for each.
- 
  Example: .text-right-sm, .text-center-md, .text-left-lg
 
  ---------------------------------------------------------------------------  
-	
 */
 
 // Loop through the breakpoints map and create an alignmnet for each
@@ -29,10 +26,4 @@
 
 	}
 
-}
-
-.vertically-center-columns {
-	@include mq($from: sm){
-		@include table-center();
-	}
 }
