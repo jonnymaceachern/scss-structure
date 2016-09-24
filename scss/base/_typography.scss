@@ -4,49 +4,103 @@
  Type
  ---------------------------------------------------------------------------
 
- 
+ Remove all styling from headings so that they can be used freely throughout 
+ the site to create a sensible heirarchy of headings regardless of their
+ size. Instead, .text-1, .text-2, etc, should be used for sizing.
+
+ The exception to this are regions of a page that are generated from a 
+ WYSIWYG, what a non-technical user would expect (e.g. the_content()). 
 
  ---------------------------------------------------------------------------  
   
 */
 
-$margin-base: 30px;
+
+// -----------------------------------------------------------------------------
+// Remove styling from headings
+// -----------------------------------------------------------------------------
 
 h1,
-.h1,
-.text-1 {
-	margin-top: $margin-base * 1.333333333333;
-	margin-bottom: $margin-base;
-}
-
 h2,
-.h2,
-.text-2 {
-}
-
 h3,
-.h3,
-.text-3 {
-
-}
-
 h4,
-.h4,
-.text-4 {
-
-}
-
 h5,
-.h5,
-.text-5 {
-
+h6 {
+	font-size: $font-size-base;
+	font-weight: normal;
+	line-height: normal;
+	margin-top: 0;
+	margin-bottom: 0;
 }
 
-h6,
-.h6,
+// -----------------------------------------------------------------------------
+// Use classes for heading/text sizing
+// -----------------------------------------------------------------------------
+
+.text-1,
+.text-2,
+.text-3,
+.text-4,
+.text-5,
 .text-6 {
-
+	margin-top: $margin-base;
+	margin-bottom: $margin-base;
+	font-weight: 100;
+	line-height: normal;
 }
+
+.text-1 {
+	font-size: $font-size-h1;
+}
+
+.text-2 {
+	font-size: $font-size-h2;
+}
+
+.text-3 {
+	font-size: $font-size-h3;
+}
+
+.text-4 {
+	font-size: $font-size-h4;
+}
+
+.text-5 {
+	font-size: $font-size-h5;
+}
+
+.text-6 {
+	font-size: $font-size-h6;
+}
+
+// -----------------------------------------------------------------------------
+// Extend size classes to WYSIWYG content areas
+// -----------------------------------------------------------------------------
+
+.page-content {
+	h1 {
+		@extend .text-1;
+	}
+	h2 {
+		@extend .text-2;
+	}
+	h3 {
+		@extend .text-3;
+	}
+	h4 {
+		@extend .text-4;
+	}
+	h5 {
+		@extend .text-5;
+	}
+	h6 {
+		@extend .text-6;
+	}
+}
+
+// -----------------------------------------------------------------------------
+// Additional type styles
+// -----------------------------------------------------------------------------
 
 .lead {
 	font-size: 1.5em;
