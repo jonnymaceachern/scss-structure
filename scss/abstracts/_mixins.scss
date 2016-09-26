@@ -43,10 +43,10 @@
 }
 
 // -----------------------------------------------------------------------------
-// Coverer
+// cover
 // -----------------------------------------------------------------------------
 
-@mixin coverer {
+@mixin cover {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -62,7 +62,7 @@
 	@if $pseudo-element == before or $pseudo-element == after {
 		&:#{$pseudo-element} {
 			@extend .#{$bg-class};
-			@include coverer;
+			@include cover;
 			opacity: $opacity;
 			content: " ";
 			transition: 2s all ease;
@@ -81,7 +81,7 @@
 	@if $pseudo-element == before or $pseudo-element == after {
 		&:#{$pseudo-element} {
 			background: $bg-color;
-			@include coverer;
+			@include cover;
 			opacity: $opacity;
 			content: " ";
 			transition: 2s all ease;
@@ -103,7 +103,7 @@
 	// Inline videos/images
 	> video,
 	> img {
-		@include coverer;
+		@include cover;
 		object-fit: cover;
 		object-position: 50% 50%;
 		height: 100%;
@@ -117,7 +117,7 @@
 	}
 	// Gradients
 	&:before {
-		@include coverer;
+		@include cover;
 		content: " ";
 		z-index: 5;
 	}
@@ -330,6 +330,8 @@
 
 // -----------------------------------------------------------------------------
 // Event wrapper
+// 
+// https://css-tricks.com/snippets/sass/simplifying-contexts-events/
 // -----------------------------------------------------------------------------
 
 @mixin on-event($self: false) {
@@ -338,7 +340,7 @@
 		&:hover,
 		&:active,
 		&:focus {
-				@content;
+			@content;
 		}
 	} @else {
 		&:hover,
@@ -347,4 +349,22 @@
 			@content;
 		}
 	}
+}
+
+// -----------------------------------------------------------------------------
+// Vertical align
+// -----------------------------------------------------------------------------
+
+@mixin vertical-align($y: middle) {
+	 position: absolute;
+	 @if $y == top {
+		 top: 0%;
+	 }
+	 @if $y == middle {
+		 top: 50%;
+		 transform: translateY(-50%);
+	 }
+	 @if $y == bottom {
+		 bottom: 0%;
+	 }
 }
