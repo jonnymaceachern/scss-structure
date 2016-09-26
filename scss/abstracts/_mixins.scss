@@ -326,3 +326,25 @@
 	object-fit: cover;
 	object-position: 50% 50%;
 }
+
+
+// -----------------------------------------------------------------------------
+// Event wrapper
+// -----------------------------------------------------------------------------
+
+@mixin on-event($self: false) {
+	@if $self {
+		&,
+		&:hover,
+		&:active,
+		&:focus {
+				@content;
+		}
+	} @else {
+		&:hover,
+		&:active,
+		&:focus {
+			@content;
+		}
+	}
+}
