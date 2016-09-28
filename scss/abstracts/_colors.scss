@@ -41,11 +41,11 @@ $theme-colors: (
 
 /*
  =========================================================================== 
- Social colors
+ Brand colors
  =========================================================================== 
 */
 
-$social-colors: (
+$brand-colors: (
 
 	500px: #0099e5,
 	500px-2: #ff4c4c,
@@ -1753,4 +1753,4 @@ $social-colors: (
  =========================================================================== 
 */
 
-$colors: map-merge($social-colors, $theme-colors);
+$colors: map-merge($brand-colors, $theme-colors);
