@@ -16,16 +16,11 @@
 
 $brand-primary: map-get($colors, google);
 
-$screen-xs: map-get($mq-breakpoints, xs);
-$screen-sm: map-get($mq-breakpoints, sm);
-$screen-md: map-get($mq-breakpoints, md);
-$screen-lg: map-get($mq-breakpoints, lg);
-
 $icon-font-path: "../fonts/";
 $font-family-sans-serif: "Open Sans", sans-serif;
 $font-family-serif: "Open Sans", sans-serif;
 
-$font-size-base: 16px;
+// $font-size-base: 16px;
 
 $body-bg: #fff;
 

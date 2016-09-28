@@ -13,7 +13,6 @@
 
 @import "abstracts/functions";
 @import "abstracts/colors";
-@import "abstracts/breakpoints";
 @import "abstracts/bootstrap";
 @import "abstracts/mixins";
 
@@ -31,10 +30,9 @@
   
 */
 
-@import "vendor/mq";
 @import "vendor/family";
 @import "vendor/animate";
-@import "vendor/bootstrap";
+@import "vendor/bootstrap/bootstrap";
 @import "vendor/bourbon/bourbon";
 @import "vendor/compass-sass-mixins/compass";
 @import "vendor/slick/slick";
@@ -95,7 +93,6 @@
 @import "utilities/backgrounds";
 @import "utilities/opacity";
 @import "utilities/text-colors";
-@import "utilities/text-alignment";
 @import "utilities/shapes";
 @import "utilities/borders";
 @import "utilities/overlays";
@@ -131,6 +128,7 @@
 @import "components/banners";
 @import "components/blockquotes";
 @import "components/features";
+@import "components/bubbles";
 
 
 /* 
