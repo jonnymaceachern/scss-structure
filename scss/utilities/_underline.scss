@@ -8,8 +8,8 @@
  ---------------------------------------------------------------------------	
 */
 
-@each $color, $i in $colors {
-	.underline-#{$color} {
-		border-bottom: $i 5px solid;
+@each $name, $value in $colors {
+	.underline-#{$name} {
+		border-bottom: $value 5px solid;
 	}
 }

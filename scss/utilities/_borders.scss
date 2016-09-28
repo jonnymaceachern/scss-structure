@@ -8,16 +8,16 @@
  ---------------------------------------------------------------------------	
 */
 
-@each $color, $i in $colors {
-	.border-#{$color} {
-		border: 1px solid $i;
+@each $name, $value in $colors {
+	.border-#{$name} {
+		border: 1px solid $value;
 	}
 
-	.border-dashed-#{$color} {
-		border: 1px dashed $i;
+	.border-dashed-#{$name} {
+		border: 1px dashed $value;
 	}
 
-	.border-dotted-#{$color} {
-		border: 1px dotted $i;
+	.border-dotted-#{$name} {
+		border: 1px dotted $value;
 	}
 }
