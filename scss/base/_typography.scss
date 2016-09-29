@@ -43,8 +43,6 @@ h6 {
 .text-4,
 .text-5,
 .text-6 {
-	margin-top: $margin-base;
-	margin-bottom: $margin-base;
 	font-weight: 100;
 	line-height: normal;
 }
@@ -80,24 +78,36 @@ h6 {
 .page-content {
 	h1 {
 		@extend .text-1;
+		margin-top: $margin-base;
+		margin-bottom: $margin-base;
 	}
 	h2 {
 		@extend .text-2;
+		margin-top: $margin-base;
+		margin-bottom: $margin-base;
 	}
 	h3 {
 		@extend .text-3;
+		margin-top: $margin-base;
+		margin-bottom: $margin-base;
 	}
 	h4 {
 		@extend .text-4;
+		margin-top: $margin-base;
+		margin-bottom: $margin-base;
 	}
 	h5 {
 		@extend .text-5;
+		margin-top: $margin-base;
+		margin-bottom: $margin-base;
 	}
 	h6 {
 		@extend .text-6;
+		margin-top: $margin-base;
+		margin-bottom: $margin-base;
 	}
 	.lead {
-		margin-bottom: 20px;
+		margin-bottom: $margin-base;
 	}
 }
 
